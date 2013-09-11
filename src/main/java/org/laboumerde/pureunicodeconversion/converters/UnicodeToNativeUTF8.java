@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 
+import org.apache.commons.lang3.CharSetUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.laboumerde.pureunicodeconversion.Constants;
 import org.laboumerde.pureunicodeconversion.interfaces.Converter;
@@ -27,7 +29,7 @@ public class UnicodeToNativeUTF8 implements Converter,Constants {
 
 	@Override
 	public Charset getDefaultInputCharster() {
-		return  StandardCharsets.US_ASCII;
+		return null;
 	}
 
 	@Override

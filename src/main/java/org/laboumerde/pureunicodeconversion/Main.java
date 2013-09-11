@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -47,7 +48,8 @@ public class Main implements Constants {
 				Path path = Paths.get(inputFile);
 				
 				// FIXME - change code to add possibilite to change input
-				List<String> inputLines = Files.readAllLines(path,  converter.getDefaultInputCharster());
+				List<String> inputLines = Files.readAllLines(path,  
+						((converter.getDefaultInputCharster() != null) ? converter.getDefaultInputCharster() : Charset.defaultCharset()));
 				String str = "";
 				System.out.println("Unicode to Native Conversion Starts...");
 				for (String string : inputLines) {
@@ -57,7 +59,8 @@ public class Main implements Constants {
 				//output !
 				FileOutputStream fos = new FileOutputStream(outputFile);
 				// FIXME - change code to add possibilite to change input
-				Writer out = new OutputStreamWriter(fos, converter.getDefaultOutputCharset());
+				Writer out = new OutputStreamWriter(fos, 
+						((converter.getDefaultOutputCharset() != null) ? converter.getDefaultOutputCharset() : Charset.defaultCharset()));
 				out.write(str);
 				out.close();
 				System.out.println("Unicode to Native Conversion Successful!");
