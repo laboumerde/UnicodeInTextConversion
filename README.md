@@ -13,7 +13,7 @@ I'm not an expert with charsets, and was not able to convert the files with othe
 For the moment there is only one option : convert to UTF8...
 
 Here is an example of the command line :
-* java -jar generatedjarFile UNIC_TO_UTF8 input.properties output.properties
+* java -jar generatedjarfile.jar UNIC_TO_UTF8 input.properties output.properties
 
 This code is really basic, it's on my repo mainly for backup and deployment tests. Please feel free for any comment and advice !
 
