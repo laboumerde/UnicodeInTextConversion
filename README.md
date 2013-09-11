@@ -19,7 +19,8 @@ Here is an example of the command line :
 
 A runnable jar is available in the jar folder.
 
-''' WARNINGS : '''
+WARNINGS : 
+
 * This code is really basic, it's on my repo mainly for backup and deployment tests. Please feel free for any comment and advice !
 * You must Use java over 1.7 version
 
