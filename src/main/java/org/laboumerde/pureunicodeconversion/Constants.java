@@ -14,6 +14,12 @@ public interface Constants {
 	 * Unicode codes to UTF8 natives.
 	 */
 	public final static String CONV_UNICODE_CODES_TO_NATIVE_UTF8 = "UNIC_TO_UTF8";
+
+	/**
+	 * UTF8 codes to Unicode natives.
+	 */
+	public final static String CONV_NATIVE_UTF8_CODES_TO_UNICODE = "UTF8_TO_UNIC";
+	
 	
 	/**
 	 * Unicode codes to UTF8 natives.

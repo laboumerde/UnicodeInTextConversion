@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.laboumerde.pureunicodeconversion.converters.DummyConverter;
+import org.laboumerde.pureunicodeconversion.converters.NativeUTF8ToUnicode;
 import org.laboumerde.pureunicodeconversion.converters.UnicodeToNativeUTF8;
 import org.laboumerde.pureunicodeconversion.interfaces.Converter;
 
@@ -35,6 +36,9 @@ public class Main implements Constants {
 			case CONV_UNICODE_CODES_TO_NATIVE_UTF8:
 				converter = new UnicodeToNativeUTF8();
 				break;
+			case CONV_NATIVE_UTF8_CODES_TO_UNICODE:
+				converter = new NativeUTF8ToUnicode();
+				break;
 			case CONV_DUMMY:
 				converter = new DummyConverter();
 				break;
@@ -47,23 +51,19 @@ public class Main implements Constants {
 			try {
 				Path path = Paths.get(inputFile);
 				
-				// FIXME - change code to add possibilite to change input
-				List<String> inputLines = Files.readAllLines(path,  
-						((converter.getDefaultInputCharster() != null) ? converter.getDefaultInputCharster() : Charset.defaultCharset()));
+				List<String> inputLines = Files.readAllLines(path, converter.getDefaultInputCharster());
 				String str = "";
-				System.out.println("Unicode to Native Conversion Starts...");
+				System.out.println("Conversion Starts...");
 				for (String string : inputLines) {
 					str +=  converter.convert(string) + "\n";
 				}
 				
 				//output !
 				FileOutputStream fos = new FileOutputStream(outputFile);
-				// FIXME - change code to add possibilite to change input
-				Writer out = new OutputStreamWriter(fos, 
-						((converter.getDefaultOutputCharset() != null) ? converter.getDefaultOutputCharset() : Charset.defaultCharset()));
+				Writer out = new OutputStreamWriter(fos, converter.getDefaultOutputCharset());
 				out.write(str);
 				out.close();
-				System.out.println("Unicode to Native Conversion Successful!");
+				System.out.println("Conversion finished!");
 				
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

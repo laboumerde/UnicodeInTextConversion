@@ -1,6 +1,6 @@
 # UnicodeInTextConversion
 
-Current version: 0.0.1-SNAPSHOT
+Current version: 0.0.2-SNAPSHOT
 
 ## What for?
 
@@ -12,12 +12,14 @@ I'm not an expert with charsets, and was not able to convert the files with othe
 
 ## How to use it?
 
-For the moment there is only one option : convert to UTF8...
+For the moment there are 2 options : 
+* convert from unicode in ascii file to native UTF8 : "UNIC_TO_UTF8"
+* convert from native UTF8 do unicode in ascii file : "UTF8_TO_UNIC"
 
 Here is an example of the command line :
  java -jar generatedjarfile.jar UNIC_TO_UTF8 input.properties output.properties
 
-A runnable jar is available in the jar folder.
+A runnable jar is available thanks to "mvn package" command.
 
 WARNINGS : 
 

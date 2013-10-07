@@ -17,12 +17,12 @@ import org.laboumerde.pureunicodeconversion.interfaces.Converter;
  * @author laboumerde
  * Unicode codes  to native UTF8 converter.
  */
-public class UnicodeToNativeUTF8 implements Converter,Constants {
+public class NativeUTF8ToUnicode implements Converter,Constants {
 	
 	@Override
 	public  String convert(String text){
 		for (int i = 0; i < UTF_CODE_TO_NATIVE_UTF8_CORRESPONDANCE_TABLE.length; i++) {
-			text = StringUtils.replace(text, UTF_CODE_TO_NATIVE_UTF8_CORRESPONDANCE_TABLE[i][1], UTF_CODE_TO_NATIVE_UTF8_CORRESPONDANCE_TABLE[i][0]);
+			text = StringUtils.replace(text, UTF_CODE_TO_NATIVE_UTF8_CORRESPONDANCE_TABLE[i][0], UTF_CODE_TO_NATIVE_UTF8_CORRESPONDANCE_TABLE[i][1]);
 		}
 		return text;
 	}
